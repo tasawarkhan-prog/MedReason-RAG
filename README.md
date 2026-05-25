@@ -65,3 +65,19 @@ Automatically detects what your API key can access:
 ---
 
 ## 🏗️ Architecture
+MedReason-RAG/
+├── app.py                    # Main Gradio UI & event wiring
+├── config.py                 # Model registry & configuration
+├── requirements.txt          # Python dependencies
+└── src/
+    ├── model_detector.py     # Dynamic API model detection
+    ├── reasoning_pipeline.py # Multi-agent AI reasoning
+    ├── pubmed_retriever.py   # Live PubMed search
+    ├── image_analyzer.py     # Medical image/PDF analysis
+    ├── medical_ner.py        # Entity extraction
+    ├── query_expander.py     # Search query expansion
+    ├── embeddings.py         # Semantic embedding engine
+    ├── vector_store.py       # Vector similarity search
+    ├── citation_verifier.py  # Citation validation
+    ├── drug_checker.py       # Drug interaction API
+    └── utils.py              # Output formatting
