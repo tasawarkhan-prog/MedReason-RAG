@@ -65,7 +65,6 @@ Automatically detects what your API key can access:
 ---
 
 ## 🏗️ Architecture
-## 🏗️ Architecture
 
 ```mermaid
 flowchart TD
