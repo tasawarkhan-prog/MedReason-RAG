@@ -1,0 +1,28 @@
+# MedReason-RAG dependencies
+# Install: pip install -r requirements.txt
+
+# UI — Gradio 5.x required: drops pydub/audioop dependency (removed in Python 3.13)
+gradio>=5.0.0
+
+# AI / LLM
+google-generativeai>=0.7.0
+
+# Embeddings
+sentence-transformers>=2.7.0
+
+# PubMed retrieval
+biopython>=1.83
+
+# ML backend (CPU-only for free tiers)
+torch>=2.1.0
+transformers>=4.38.0
+accelerate>=0.27.0
+
+# Numerical
+numpy>=1.24.0
+
+# HTTP (drug interaction APIs)
+requests>=2.31.0
+
+# PDF text extraction (uploaded medical reports — no API key needed)
+pypdf>=3.0.0
