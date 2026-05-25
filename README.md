@@ -65,19 +65,33 @@ Automatically detects what your API key can access:
 ---
 
 ## 🏗️ Architecture
-MedReason-RAG/
-├── app.py                    # Main Gradio UI & event wiring
-├── config.py                 # Model registry & configuration
-├── requirements.txt          # Python dependencies
-└── src/
-    ├── model_detector.py     # Dynamic API model detection
-    ├── reasoning_pipeline.py # Multi-agent AI reasoning
-    ├── pubmed_retriever.py   # Live PubMed search
-    ├── image_analyzer.py     # Medical image/PDF analysis
-    ├── medical_ner.py        # Entity extraction
-    ├── query_expander.py     # Search query expansion
-    ├── embeddings.py         # Semantic embedding engine
-    ├── vector_store.py       # Vector similarity search
-    ├── citation_verifier.py  # Citation validation
-    ├── drug_checker.py       # Drug interaction API
-    └── utils.py              # Output formatting
+## 🏗️ Architecture
+
+```mermaid
+flowchart TD
+    A[📝 Patient Case Text] --> C
+    B[🖼️ Upload Image / PDF] --> B1[AI Vision Analysis\nGemini / LLaMA 4 Scout]
+    B1 --> B2[Clinical Description]
+    B2 --> C
+
+    C[🔬 Medical NER\nEntity Extraction] --> D
+    D[🔍 Query Expansion] --> E
+    E[📡 Live PubMed Search\n5M+ Papers] --> F
+    F[🧮 Semantic Embedding\n+ Vector Ranking] --> G
+
+    subgraph Agents [🧠 Multi-Agent Reasoning]
+        G --> H[Agent 1 — Diagnostician\n5 Differential Diagnoses]
+        G --> I[Agent 2 — Devil's Advocate\nChallenges Each Diagnosis]
+        H --> J[Final Debate & Consensus]
+        I --> J
+    end
+
+    J --> K[✅ Citation Verification\nCosine Similarity]
+    J --> L[💊 Drug Interaction Check\nRxNorm API]
+
+    K --> M[📋 Evidence-Grounded\nClinical Report with PMIDs]
+    L --> M
+
+    style Agents fill:#1e3a5f,color:#fff,stroke:#4a9eff
+    style M fill:#1a4731,color:#fff,stroke:#4ade80
+    style B1 fill:#4a1942,color:#fff,stroke:#c084fc
